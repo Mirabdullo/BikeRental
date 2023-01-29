@@ -1,0 +1,31 @@
+const Router = require("@koa/router")
+const shopInfoRoutes = require("./shopInfo.routes")
+const bikeRoutes = require("./bike.routes")
+const categoryRoutes = require("./category.routes")
+const clientRoutes = require("./client.routes")
+const managementRoutes = require("./management.routes")
+const paymentRoutes = require("./payment.routes")
+const penaltyRoutes = require("./penalty.routes")
+const rentalRoutes = require("./rental.routes")
+const userRoutes = require("./user.routes")
+const userGroupRoutes = require("./userGroup.routes")
+const responses = require("./responses.routes")
+const otpRoutes = require('./otp.routes');
+
+const router = new Router()
+router.use(responses())
+
+router.use("/api/otp", otpRoutes())
+router.use("/api/shopInfo", shopInfoRoutes())
+router.use("/api/bike", bikeRoutes())
+router.use("/api/category", categoryRoutes())
+router.use("/api/client", clientRoutes())
+router.use("/api/management", managementRoutes())
+router.use("/api/payment", paymentRoutes())
+router.use("/api/penalty", penaltyRoutes())
+router.use("/api/rental", rentalRoutes())
+router.use("/api/user", userRoutes())
+router.use("/api/group", userGroupRoutes())
+
+
+module.exports = router.routes()
